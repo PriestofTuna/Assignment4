@@ -26,6 +26,7 @@ public class Assignment4 extends Application {
 	/**
 	 * Author, PriestofTuna 
 	 * date: 11/4/15
+	 * contact information: lyttekk@yahoo.com
 	 * Purpose:
 	 * to create accounts for Tuna.net services
 	 * 
@@ -61,7 +62,7 @@ public class Assignment4 extends Application {
 		final ComboBox acomboBox = new ComboBox();
 		acomboBox.getItems().addAll(enums.values());
 		enums Account = null;
-		acomboBox.setValue(enums.Guest);
+		acomboBox.setValue(enums.Student);
 		
 		
 		// The below "input" based variables are to gain the values of the
@@ -76,7 +77,7 @@ public class Assignment4 extends Application {
 				inputPassword = PassTxt.getText();
 				inputFirmPassword = FirmPassTxt.getText();
 
-				inputUser = UserTxt.getText();
+				inputUser = UserTxt.getText().toLowerCase();
 				
 				
 				inputAccount = (enums) acomboBox.getValue();
@@ -86,8 +87,7 @@ public class Assignment4 extends Application {
 				inputlaName = laNameTxt.getText();
 				inputEmail = emailTxt.getText();
 
-				Account asdf = new Account(inputfiName, inputlaName, inputEmail, inputUser,  inputFirmPassword, inputAccount,
-						 inputPassword);
+				
 				//asdf is the account created by the constructors
 				inputUser.equalsIgnoreCase(inputUser);
 				
@@ -98,17 +98,22 @@ public class Assignment4 extends Application {
 				if (inputPassword.equals(inputFirmPassword)) {
 					PassTxt.setStyle("-fx-border-color: white;");
 					FirmPassTxt.setStyle("-fx-border-color: white;");
+					PassLbl.setStyle("-fx-border-color: white;");
+					FirmPassLbl.setStyle("-fx-border-color: white;");
+					PassLbl.setText("Password");
+					FirmPassLbl.setText("confirm password");
 
 				} else {
 					PassTxt.setStyle("-fx-border-color: red;");
 					FirmPassTxt.setStyle("-fx-border-color: red;");
 					PassLbl.setText("Invalid password, passwords must match");
-					FirmPassLbl.setText("invalid password, passwords must match");
+					FirmPassLbl.setText("invalid passwords, passwords must match");
+					PassLbl.setTextFill(javafx.scene.paint.Color.RED);
+					FirmPassLbl.setTextFill(javafx.scene.paint.Color.RED);
 					
 				}
-				if(inputPassword.matches(patternPass)) {
+				if(!inputPassword.matches(patternPass)) {
 					
-				}else {
 					PassTxt.setStyle("-fx-border-color: red;");
 					FirmPassTxt.setStyle("-fx-border-color: red;");
 					PassLbl.setText("at least 8 char, use special chars");
@@ -157,10 +162,17 @@ public class Assignment4 extends Application {
 				
 				
 
-				if (inputPassword.equals(inputFirmPassword) && inputEmail.matches(pattern)) {
-					JOptionPane.showMessageDialog(null,"Your account is " + inputUser);
-				}
-
+			        if (inputPassword.equals(inputFirmPassword) && inputPassword.matches(patternPass) && !inputUser.isEmpty() &&
+			        		!inputPassword.isEmpty() && !inputFirmPassword.isEmpty() && !inputfiName.isEmpty() && !inputlaName.isEmpty()
+			        		&& !inputEmail.isEmpty() && inputEmail.matches(pattern)) {
+			        	Account asdf = new Account(inputfiName, inputlaName, inputEmail, inputUser,  inputFirmPassword, inputAccount,
+								 inputPassword);
+			        	JOptionPane.showMessageDialog(null,"Your account is " + inputUser);
+					JOptionPane.showMessageDialog(null, "Your account information is ");
+				    JOptionPane.showMessageDialog(null, asdf);
+			        }else {
+			        	JOptionPane.showMessageDialog(null, "Incorrect! Please recreate account");
+			        }
 			}
 		});
 
