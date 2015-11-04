@@ -1,3 +1,9 @@
+
+//public enum enums {
+//Admin, Staff, Student, Guest
+//}
+
+//enter the above in an enum class named "enums"
 import javafx.scene.control.ComboBox;
 
 public class Account {
