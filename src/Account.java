@@ -30,14 +30,8 @@ public Account(String fiName, String laName, String email, String user,
 		return password;
 	}
 
-//public void setcomboBox(ComboBox comboBox2) {
-	//this.comboBox = comboBox2;
-	
-//}
-//public ComboBox getcomboBox() {
-	//return comboBox;
-//}
-//end of accountType
+
+
 public void setFirmPassword(String firmPassword2) {
 	this.firmPassword = firmPassword2;
 	
