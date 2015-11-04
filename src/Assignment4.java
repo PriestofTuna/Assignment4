@@ -22,9 +22,6 @@ import javafx.stage.Stage;
 public class Assignment4 extends Application {
 	private String inputPassword;
 	private String inputFirmPassword;
-	//https://docs.oracle.com/javase/tutorial/uiswing/components/combobox.html lists how to use a 
-			//JComboBox, but I can't figure out how to change my program to that
-	        //Also changing user.ignoreCase would be nice, I can't figure if its correct.
 
 	/**
 	 * Author, PriestofTuna 
@@ -179,7 +176,7 @@ public class Assignment4 extends Application {
 		grid.add(FirmPassTxt, 1, 3);
 		grid.add(AccountLbl, 0, 4);
 		grid.add(acomboBox, 1, 4);
-		// Needs to use a drop down list for comboBox
+	
 		grid.add(FiNameLbl, 0, 5);
 		grid.add(fiNameTxt, 1, 5);
 		grid.add(LaNameLbl, 0, 6);
