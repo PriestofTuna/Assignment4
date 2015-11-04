@@ -1,6 +1,7 @@
 import java.util.Collection;
 import java.util.List;
 
+import javax.swing.JOptionPane;
 import javax.swing.plaf.OptionPaneUI;
 
 import javafx.application.Application;
@@ -60,10 +61,10 @@ public class Assignment4 extends Application {
 		TextField emailTxt = new TextField();
 		
 		
-		ObservableList<String> options = FXCollections.observableArrayList("Admin ", "Student", "Guest");
-		final ComboBox comboBox = new ComboBox(options);
-		
-		
+		final ComboBox acomboBox = new ComboBox();
+		acomboBox.getItems().addAll(enums.values());
+		enums Account = null;
+		acomboBox.setValue(enums.Guest);
 		
 		
 		// The below "input" based variables are to gain the values of the
@@ -71,7 +72,8 @@ public class Assignment4 extends Application {
 		signUp.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent arg0) {
-				String inputUser, inputfiName, inputlaName, inputAccount, inputEmail;
+				String inputUser, inputfiName, inputlaName, inputEmail;
+				enums inputAccount;
 				// inputPassword was previously a string, inputFirmPassword was
 				// previously a String above
 				inputPassword = PassTxt.getText();
@@ -80,16 +82,16 @@ public class Assignment4 extends Application {
 				inputUser = UserTxt.getText();
 				
 				
-				inputAccount = comboBox.toString();
+				inputAccount = (enums) acomboBox.getValue();
 								
 				
 				inputfiName = fiNameTxt.getText();
 				inputlaName = laNameTxt.getText();
 				inputEmail = emailTxt.getText();
 
-				Account asdf = new Account(inputfiName, inputlaName, inputEmail, inputUser,  inputFirmPassword, comboBox,
+				Account asdf = new Account(inputfiName, inputlaName, inputEmail, inputUser,  inputFirmPassword, inputAccount,
 						 inputPassword);
-
+				//asdf is the account created by the constructors
 				inputUser.equalsIgnoreCase(inputUser);
 				
 				String pattern = "\\w+@\\w+\\.\\w+";
@@ -131,13 +133,7 @@ public class Assignment4 extends Application {
 				    FirmPassLbl.setText("Password confirmation required");
 				}
 
-				//if (((Collection<String>) comboBox).isEmpty()) {
-					//needs to be altered when comboBox input is fixed^
-				//	comboBox.setStyle("-fx-border-color: red;");
-				//	AccountLbl.setText("Choose an accountType");
-				//} else {
-				//	comboBox.setStyle("-fx-border-color: white;");
-				//}
+				
 				if (inputfiName.isEmpty()) {
 					fiNameTxt.setStyle("-fx-border-color: red;");
 					FiNameLbl.setText("enter your first name");;
@@ -164,7 +160,9 @@ public class Assignment4 extends Application {
 				
 				
 
-				System.out.println(asdf);
+				if (inputPassword.equals(inputFirmPassword) && inputEmail.matches(pattern)) {
+					JOptionPane.showMessageDialog(null,"Your account is " + inputUser);
+				}
 
 			}
 		});
@@ -180,7 +178,7 @@ public class Assignment4 extends Application {
 		grid.add(FirmPassLbl, 0, 3);
 		grid.add(FirmPassTxt, 1, 3);
 		grid.add(AccountLbl, 0, 4);
-		grid.add(comboBox, 1, 4);
+		grid.add(acomboBox, 1, 4);
 		// Needs to use a drop down list for comboBox
 		grid.add(FiNameLbl, 0, 5);
 		grid.add(fiNameTxt, 1, 5);
