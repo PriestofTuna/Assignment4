@@ -1,4 +1,3 @@
-
 import java.util.Collection;
 import java.util.List;
 
@@ -79,8 +78,7 @@ public class Assignment4 extends Application {
 				inputFirmPassword = FirmPassTxt.getText();
 
 				inputUser = UserTxt.getText();
-				// inputPassword = PassTxt.getText();
-				// inputFirmPassword = FirmPassTxt.getText();
+				
 				
 				inputAccount = comboBox.toString();
 								
@@ -99,12 +97,12 @@ public class Assignment4 extends Application {
 				
 
 				if (inputPassword.equals(inputFirmPassword)) {
-					PassTxt.setStyle("-fx-background-color: white;");
-					FirmPassTxt.setStyle("-fx-background-color: white;");
+					PassTxt.setStyle("-fx-border-color: white;");
+					FirmPassTxt.setStyle("-fx-border-color: white;");
 
 				} else {
-					PassTxt.setStyle("-fx-background-color: red;");
-					FirmPassTxt.setStyle("-fx-background-color: red;");
+					PassTxt.setStyle("-fx-border-color: red;");
+					FirmPassTxt.setStyle("-fx-border-color: red;");
 					PassLbl.setText("Invalid password, passwords must match");
 					FirmPassLbl.setText("invalid password, passwords must match");
 					
@@ -112,56 +110,56 @@ public class Assignment4 extends Application {
 				if(inputPassword.matches(patternPass)) {
 					
 				}else {
-					PassTxt.setStyle("-fx-background-color: red;");
-					FirmPassTxt.setStyle("-fx-background-color: red;");
+					PassTxt.setStyle("-fx-border-color: red;");
+					FirmPassTxt.setStyle("-fx-border-color: red;");
 					PassLbl.setText("at least 8 char, use special chars");
 				}
 
 				if (inputUser.isEmpty()) {
-					UserTxt.setStyle("-fx-background-color: red;");
+					UserTxt.setStyle("-fx-border-color: red;");
 					UserLbl.setText("invalid username");
 				} else {
-					UserTxt.setStyle("-fx-background-color: white;");
+					UserTxt.setStyle("-fx-border-color: white;");
 				}
 				if (inputPassword.isEmpty()) {
-					PassTxt.setStyle("-fx-background-color: red;");
+					PassTxt.setStyle("-fx-border-color: red;");
 				PassLbl.setText("Password is required");
 				}
 
 				if (inputFirmPassword.isEmpty()) {
-					FirmPassTxt.setStyle("-fx-background-color: red;");
+					FirmPassTxt.setStyle("-fx-border-color: red;");
 				    FirmPassLbl.setText("Password confirmation required");
 				}
 
-				if (((Collection<String>) comboBox).isEmpty()) {
+				//if (((Collection<String>) comboBox).isEmpty()) {
 					//needs to be altered when comboBox input is fixed^
-					comboBox.setStyle("-fx-background-color: red;");
-					AccountLbl.setText("Choose an accountType");
-				} else {
-					comboBox.setStyle("-fx-background-color: white;");
-				}
+				//	comboBox.setStyle("-fx-border-color: red;");
+				//	AccountLbl.setText("Choose an accountType");
+				//} else {
+				//	comboBox.setStyle("-fx-border-color: white;");
+				//}
 				if (inputfiName.isEmpty()) {
-					fiNameTxt.setStyle("-fx-background-color: red;");
+					fiNameTxt.setStyle("-fx-border-color: red;");
 					FiNameLbl.setText("enter your first name");;
 				} else {
-					fiNameTxt.setStyle("-fx-background-color: white;");
+					fiNameTxt.setStyle("-fx-border-color: white;");
 				}
 				if (inputlaName.isEmpty()) {
-					laNameTxt.setStyle("-fx-background-color: red;");
+					laNameTxt.setStyle("-fx-border-color: red;");
 				    LaNameLbl.setText("enter your last name");
 				} else {
-					laNameTxt.setStyle("-fx-background-color: white;");
+					laNameTxt.setStyle("-fx-border-color: white;");
 				}
 				if (inputEmail.isEmpty()) {
-					emailTxt.setStyle("-fx-background-color: red;");
+					emailTxt.setStyle("-fx-border-color: red;");
 				    EmailLbl.setText("Enter your email");
 				} else {
-					emailTxt.setStyle("-fx-background-color: white;");
+					emailTxt.setStyle("-fx-border-color: white;");
 				}
 				if (inputEmail.matches(pattern)) {
-					emailTxt.setStyle("-fx-background-color: white;");
+					emailTxt.setStyle("-fx-border-color: white;");
 				}else {
-					emailTxt.setStyle("-fx-background-color: red;");
+					emailTxt.setStyle("-fx-border-color: red;");
 				}
 				
 				
@@ -183,7 +181,7 @@ public class Assignment4 extends Application {
 		grid.add(FirmPassTxt, 1, 3);
 		grid.add(AccountLbl, 0, 4);
 		grid.add(comboBox, 1, 4);
-		// Needs to use a drop down list for inputAccount
+		// Needs to use a drop down list for comboBox
 		grid.add(FiNameLbl, 0, 5);
 		grid.add(fiNameTxt, 1, 5);
 		grid.add(LaNameLbl, 0, 6);
