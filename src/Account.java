@@ -8,15 +8,18 @@ public class Account {
 	private String firmPassword;
 	private ComboBox comboBox;
 	private String password;
+	private enums Accounts;
+	
 public Account(String fiName, String laName, String email, String user, 
-		 String firmPassword, ComboBox comboBox, String password) {
+		 String firmPassword, enums comboBox2, String password) {
 	this.setFiName(fiName);
 	this.setLaName(laName);
 	this.setUser(user);
 	this.setEmail(email);
 	this.setFirmPassword(firmPassword);
 	this.setPassword(password);
-	this.setcomboBox(comboBox);
+	//this.setcomboBox(comboBox);
+	this.Accounts = comboBox2;
 	
 }
 
@@ -27,13 +30,13 @@ public Account(String fiName, String laName, String email, String user,
 		return password;
 	}
 
-public void setcomboBox(ComboBox comboBox2) {
-	this.comboBox = comboBox2;
+//public void setcomboBox(ComboBox comboBox2) {
+	//this.comboBox = comboBox2;
 	
-}
-public ComboBox getcomboBox() {
-	return comboBox;
-}
+//}
+//public ComboBox getcomboBox() {
+	//return comboBox;
+//}
 //end of accountType
 public void setFirmPassword(String firmPassword2) {
 	this.firmPassword = firmPassword2;
@@ -73,7 +76,7 @@ public String getfiName() {
 	return fiName;
 }
 public String toString() {
-	return this.fiName + " " + this.laName +" " + this.email + this.user +" " + this.firmPassword +
+	return this.fiName + " " + this.laName +" " + this.email + " " + this.user +" " + this.firmPassword + " " + this.Accounts +
 			" " + this.password;
 	
 }
